@@ -7,7 +7,8 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
-
+        <!-- load the properties file: sport.properties -->
+       <context:property-placeholder location="classpath:sport.properties" />
     <!--
         Add a logger config to see logging messages.
         - For more detailed logs, set values to "FINEST"
@@ -23,6 +24,9 @@
     <bean id="myFortune"
           class="com.luv2code.springdemo.HappyFortuneService">
     </bean>
+
+    <bean id="randomFortune"
+          class="com.luv2code.springdemo.RandomFortuneService" />
 
     <bean id="myTrackCoach"
           class="com.luv2code.springdemo.TrackCoach">
@@ -42,7 +46,11 @@
         <!-- What this does is call the setter method of
         fortune service i.e. setFortuneService and ref is
         the argument for setter method-->
-        <property name="fortuneService" ref="myFortune" />
+        <property name="fortuneService" ref="randomFortune" />
+        <!--property name="email" value="jackhammervyom@gmail.com" /-->
+        <!--property name="team" value="Chennai Super Kings" /-->
+        <property name="email" value="${foo.email}" />
+        <property name="team" value="${foo.team}" />
     </bean>
 
 

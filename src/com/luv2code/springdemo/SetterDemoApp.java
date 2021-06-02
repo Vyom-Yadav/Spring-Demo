@@ -13,6 +13,8 @@ public class SetterDemoApp {
 
         System.out.println(cricketCoach.getDailyWorkout());
         System.out.println(cricketCoach.getDailyFortune());
+        System.out.println(cricketCoach.getTeam());
+        System.out.println(cricketCoach.getEmail());
 
         context.close();
     }
